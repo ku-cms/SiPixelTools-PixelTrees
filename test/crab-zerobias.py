@@ -22,7 +22,7 @@ config = Configuration()
 config.section_('General')
 config.General.transferOutputs = True
 config.General.transferLogs = True
-config.General.requestName = 'PixelTree_ZeroBias_2018C_RAW_Run319313_v1'
+config.General.requestName = 'PixelTree_ZeroBias_2018C_RAW_AllRuns_v1'
 
 config.section_('JobType')
 config.JobType.allowUndistributedCMSSW = True
@@ -39,7 +39,7 @@ config.JobType.maxMemoryMB = 4000
 config.section_('Data')
 config.Data.inputDataset = '/ZeroBias/Run2018C-v1/RAW'
 #config.Data.runRange = 'XXX-YYY' # only process runs XXX to YYY inclusive
-config.Data.runRange = '319313'
+config.Data.runRange = '319313-320393'
 
 # Note: slash required after <CERN-username> if <output-directory> is not provided
 #config.Data.outLFNDirBase = '/store/user/<CERN-username>/<output-directory>'
