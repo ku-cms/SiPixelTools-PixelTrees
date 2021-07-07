@@ -1,5 +1,6 @@
 # remove.py
 import argparse
+import time
 import os
 import re
 
@@ -22,6 +23,8 @@ def main():
         print("ERROR: The input directory \"{0}\" does not exist.".format(input_dir))
         return
 
+    t1 = time.time()
+
     file_list = os.listdir(input_dir)
     for f in file_list:
         # skip non root files:
@@ -29,15 +32,20 @@ def main():
             continue
         nums = re.findall(r'\d+', f)
         if len(nums) != 1:
-            print("ERROR: skipping file {0}, multiple nubmers found: {1}".format(f, nums))
+            print("WARNING: skipping file {0}, unique number not found: {1}".format(f, nums))
             continue
         n = int(nums[0])
         if n > min_number:
             path = "{0}/{1}".format(input_dir, f)
-            #print(f)
-            print(path)
+            print(f)
+            #print(path)
             if execute:
                 os.remove(path)
+    
+    t2 = time.time()
+    
+    run_time = t2 - t1
+    print("run time: {0:.3f} seconds".format(run_time))
 
 if __name__ == "__main__":
     main()
