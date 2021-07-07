@@ -38,7 +38,7 @@ config.JobType.maxMemoryMB = 4000
 config.section_('Data')
 config.Data.inputDataset = '/MinimumBias2/Run2018C-v1/RAW'
 #config.Data.runRange = 'XXX-YYY' # only process runs XXX to YYY inclusive
-config.Data.runRange = '319439'
+config.Data.runRange = '319439-319488'
 
 # Note: slash required after <CERN-username> if <output-directory> is not provided
 #config.Data.outLFNDirBase = '/store/user/<CERN-username>/<output-directory>'
@@ -59,5 +59,4 @@ config.section_('Site')
 # crab checkwrite --site T2_US_Nebraska
 config.Site.storageSite = 'T2_US_Nebraska'
 config.Site.whitelist = ['T1_IT_*','T1_US_*','T2_DE_DESY','T2_FR_IPHC','T2_CH_CERN','T2_IT_Bari','T2_US_*']
-
 
