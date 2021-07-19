@@ -16,3 +16,17 @@ git clone https://github.com/CMSTrackerDPG/SiPixelTools-PixelTrees.git SiPixelTo
 scram b -j 8
 cd SiPixelTools/PixelTrees/test/
 ```
+## Crab jobs
+
+Documentation: https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+
+To check crab write permissions: 
+```
+crab checkwrite --site <site>
+```
+
+To submit crab jobs:
+```
+crab submit -c <config_file>
+```
+
