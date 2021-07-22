@@ -10,7 +10,7 @@ process.MessageLogger.cerr.FwkReport.reportEvery = 100
 #process.MessageLogger.categories.append('HLTrigReport')
 #process.MessageLogger.categories.append('L1GtTrigReport')
 process.options = cms.untracked.PSet( 
-    SkipEvent = cms.untracked.vstring('ProductNotFound'), wantSummary = cms.untracked.bool(True) 
+    #SkipEvent = cms.untracked.vstring('ProductNotFound'), wantSummary = cms.untracked.bool(True) 
 )
 
 
@@ -30,7 +30,7 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 # -- Input files
 process.source = cms.Source("PoolSource",
     #fileNames = cms.untracked.vstring("root://cms-xrd-global.cern.ch//store/data/Run2018A/SingleMuon/ALCARECO/SiPixelCalSingleMuon-ForPixelALCARECO_UL2018-v1/50000/FD38563C-89C4-FE4E-AD40-20780C903467.root")
-    #fileNames = cms.untracked.vstring("root://cms-xrd-global.cern.ch//store/data/Run2018C/SingleMuon/RAW/v1/000/320/065/00000/8C070B38-338E-E811-A4D1-FA163E781D28.root")
+    fileNames = cms.untracked.vstring("root://cms-xrd-global.cern.ch//store/data/Run2018C/SingleMuon/RAW/v1/000/320/065/00000/8C070B38-338E-E811-A4D1-FA163E781D28.root")
 )
 # -- number of events
 process.maxEvents = cms.untracked.PSet(

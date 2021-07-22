@@ -22,7 +22,7 @@ config = Configuration()
 config.section_('General')
 config.General.transferOutputs = True
 config.General.transferLogs = True
-config.General.requestName = 'PixelTree_MinBias_2017B_RAW_v3'
+config.General.requestName = 'PixelTree_MinBias_2017B_RAW_v4'
 
 config.section_('JobType')
 config.JobType.allowUndistributedCMSSW = True
