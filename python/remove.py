@@ -10,9 +10,9 @@ import re
 def main():
     # options
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument("--input_dir",  "-i", default="",   help="input directory containing root files to remove"     )
-    parser.add_argument("--min_number", "-m", default=1e10, help="remove all files with number larger than min_number" )
-    parser.add_argument("--execute",    "-e", default = False, action = "store_true", help="execute file removal"      )
+    parser.add_argument("--input_dir",  "-i", default="",      help="input directory containing root files to remove"     )
+    parser.add_argument("--min_number", "-m", default=1e100,   help="remove all files with number larger than min_number" )
+    parser.add_argument("--execute",    "-e", default = False, action = "store_true", help="execute file removal"         )
 
     options    = parser.parse_args()
     input_dir  = options.input_dir
@@ -24,6 +24,8 @@ def main():
         return
 
     t1 = time.time()
+    
+    n_files = 0
 
     file_list = os.listdir(input_dir)
     for f in file_list:
@@ -36,6 +38,7 @@ def main():
             continue
         n = int(nums[0])
         if n > min_number:
+            n_files += 1
             path = "{0}/{1}".format(input_dir, f)
             print(f)
             #print(path)
@@ -45,7 +48,13 @@ def main():
     t2 = time.time()
     
     run_time = t2 - t1
-    print("run time: {0:.3f} seconds".format(run_time))
+    
+    if execute:
+        print("Number of files removed: {0}".format(n_files))
+        print("Run time: {0:.3f} seconds".format(run_time))
+    else:
+        print("Number of files that will be removed: {0}".format(n_files))
+        print("Run again with -e flag to execute file removal.")
 
 if __name__ == "__main__":
     main()
