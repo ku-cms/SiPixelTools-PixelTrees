@@ -22,7 +22,7 @@ config = Configuration()
 config.section_('General')
 config.General.transferOutputs = True
 config.General.transferLogs = True
-config.General.requestName = 'PixelTree_ZeroBias_2017B_RAW_v2'
+config.General.requestName = 'PixelTree_ZeroBias_2017B_RAW_v3'
 
 config.section_('JobType')
 config.JobType.allowUndistributedCMSSW = True
@@ -38,8 +38,8 @@ config.JobType.maxMemoryMB = 4000
 config.section_('Data')
 config.Data.inputDataset = '/ZeroBias/Run2017B-v1/RAW'
 #config.Data.runRange = 'XXX-YYY' # only process runs XXX to YYY inclusive
-#config.Data.runRange = '297050'
-config.Data.runRange = '297020-297057'
+config.Data.runRange = '297050-297224'
+config.Data.lumiMask = 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/Collisions17/13TeV/Legacy_2017/Cert_294927-306462_13TeV_UL2017_Collisions17_GoldenJSON.txt'
 
 # Note: slash required after <CERN-username> if <output-directory> is not provided
 #config.Data.outLFNDirBase = '/store/user/<CERN-username>/<output-directory>'
