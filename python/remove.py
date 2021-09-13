@@ -10,13 +10,15 @@ import re
 def main():
     # options
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument("--input_dir",  "-i", default="",      help="input directory containing root files to remove"     )
-    parser.add_argument("--min_number", "-m", default=1e100,   help="remove all files with number larger than min_number" )
-    parser.add_argument("--execute",    "-e", default = False, action = "store_true", help="execute file removal"         )
+    parser.add_argument("--input_dir",  "-i", default="",       help="input directory containing root files to remove"     )
+    parser.add_argument("--min_number", "-a", default=1e100,    help="remove all files with number larger than min_number" )
+    parser.add_argument("--max_number", "-b", default=-1e100,   help="remove all files with number smaller than max_number" )
+    parser.add_argument("--execute",    "-e", default = False,  action = "store_true", help="execute file removal"         )
 
     options    = parser.parse_args()
     input_dir  = options.input_dir
     min_number = int(options.min_number)
+    max_number = int(options.max_number)
     execute    = options.execute
 
     if not os.path.exists(input_dir):
@@ -37,7 +39,7 @@ def main():
             print("WARNING: skipping file {0}, unique number not found: {1}".format(f, nums))
             continue
         n = int(nums[0])
-        if n > min_number:
+        if n > min_number and n < max_number:
             n_files += 1
             path = "{0}/{1}".format(input_dir, f)
             print(f)
