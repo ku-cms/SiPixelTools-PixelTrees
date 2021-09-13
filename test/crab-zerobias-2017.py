@@ -43,7 +43,10 @@ config.Data.lumiMask = 'https://cms-service-dqmdc.web.cern.ch/CAF/certification/
 
 # Note: slash required after <CERN-username> if <output-directory> is not provided
 #config.Data.outLFNDirBase = '/store/user/<CERN-username>/<output-directory>'
-config.Data.outLFNDirBase = '/store/user/caleb/PixelTrees/'
+
+#config.Data.outLFNDirBase = '/store/user/caleb/PixelTrees/'
+#config.Data.outLFNDirBase = '/store/user/lpcsusylep/PixelTrees/'
+config.Data.outLFNDirBase = '/store/group/lpcsusylep/PixelTrees/'
 config.Data.splitting = 'FileBased'
 config.Data.unitsPerJob = 1
 config.Data.publication = True
@@ -58,7 +61,9 @@ config.section_('Site')
 # Make sure you have write access to the config.Site.storageSite that you specify 
 # voms-proxy-init --valid 192:00 -voms cms
 # crab checkwrite --site T2_US_Nebraska
-config.Site.storageSite = 'T2_US_Nebraska'
+
+#config.Site.storageSite = 'T2_US_Nebraska'
+config.Site.storageSite = 'T3_US_FNALLPC'
 config.Site.whitelist = ['T1_IT_*','T1_US_*','T2_DE_DESY','T2_FR_IPHC','T2_CH_CERN','T2_IT_Bari','T2_US_*']
 
 
