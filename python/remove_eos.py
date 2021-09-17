@@ -3,9 +3,11 @@ import argparse
 import time
 import os
 import re
+from subprocess import check_output
 
-# Remove root files in directory according to requirements
-# WARNING: removes files
+# Remove root files from EOS directory according to requirements
+# Uses EOS commands and not fuse mount
+# WARNING: removes EOS files
 
 def main():
     # options
@@ -21,15 +23,16 @@ def main():
     max_number = int(options.max_number)
     execute    = options.execute
 
-    if not os.path.exists(input_dir):
-        print("ERROR: The input directory \"{0}\" does not exist.".format(input_dir))
-        return
-
     t1 = time.time()
     
     n_files = 0
 
-    file_list = os.listdir(input_dir)
+    output = check_output(["eos", "root://cmseos.fnal.gov", "ls", input_dir])
+    # clean output
+    file_list = str(output).split('\\n')
+    file_list[0] = file_list[0][2:]
+    file_list = file_list[:-1]
+    #print(file_list)
     for f in file_list:
         # skip non root files:
         if not ".root" in f:
@@ -45,7 +48,7 @@ def main():
             print(f)
             #print(path)
             if execute:
-                os.remove(path)
+                output = check_output(["eos", "root://cmseos.fnal.gov", "rm", path])
     
     t2 = time.time()
     
