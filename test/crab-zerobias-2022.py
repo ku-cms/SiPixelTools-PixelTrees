@@ -22,7 +22,7 @@ config = Configuration()
 config.section_('General')
 config.General.transferOutputs = True
 config.General.transferLogs = True
-config.General.requestName = 'PixelTree_ZeroBias_2022F_RAW_v1_Run362154_v1'
+config.General.requestName = 'PixelTree_ZeroBias_2022F_RAW_v1_Run362154_v2'
 
 config.section_('JobType')
 config.JobType.allowUndistributedCMSSW = True
@@ -30,8 +30,8 @@ config.JobType.pluginName = 'Analysis'
 config.JobType.psetName = '4pixelTree-RAW-2022.py'
 config.JobType.outputFiles = ['PixelTree.root']
 config.JobType.disableAutomaticOutputCollection = True
-config.JobType.maxJobRuntimeMin = 3000
-config.JobType.maxMemoryMB = 4000
+config.JobType.maxJobRuntimeMin = 2750
+config.JobType.maxMemoryMB = 2500
 
 config.section_('Data')
 config.Data.inputDataset = '/ZeroBias/Run2022F-v1/RAW'
